@@ -30,10 +30,12 @@ Tamagochi.prototype.sleep = function (hours) {
     setTimeout(function () {
         alert('Привіт, я проснувся!');
     }, hours*1000);
+    this.checkParameters();
 }
 
 Tamagochi.prototype.wash = function () {
     this.hygiene = 100;
+    this.checkParameters();
 }
 
 Tamagochi.prototype.eat = function(food){
@@ -74,6 +76,13 @@ Tamagochi.prototype.checkParameters = function () {
     if (this.health < 40) {
         alert('Треба зайнятись спортом!')
     }
+    console.info({
+        'Їжа': this.eatParametr,
+        'Вода': this.drinkParametr,
+        'Здоров*я': this.health,
+        'Щастя': this.happiness,
+        'Гігієна': this.hygiene
+    });
 }
 
 Tamagochi.prototype.checkIfDie = function () {
